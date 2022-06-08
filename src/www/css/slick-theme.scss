@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+// Default Variables
+
+// Slick icon entity codes outputs the following
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-font-path: "./fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "./" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "\2190" !default;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 56px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+@function slick-image-url($url) {
+    @if function-exists(image-url) {
+        @return image-url($url);
+    }
+    @else {
+        @return url($slick-loader-path + $url);
+    }
+}
+
+@function slick-font-url($url) {
+    @if function-exists(font-url) {
+        @return font-url($url);
+    }
+    @else {
+        @return url($slick-font-path + $url);
+    }
+}
+
+
+/* Arrows */
+
+.virtualSlide{
+    .slick-prev {position: absolute; top: 270px; left: 1110px; z-index: 1; width: 72px;height: 72px;background: url("../images/sub/virtualEx/btn-arr-left@2x.png") no-repeat center;background-size: 72px 72px;border: none;outline: none;font-size: 0;cursor: pointer;}
+    .slick-next {position: absolute; top: 270px; left: 2220px; z-index: 1; width: 72px;height: 72px;background: url("../images/sub/virtualEx/btn-arr-right@2x.png") no-repeat center;background-size: 72px 72px;border: none;outline: none;font-size: 0;cursor: pointer;}
+}
+
+.modalBox{
+    .slick-prev{position: absolute; top: 50%; left: -64px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url("../images/sub/media/arrow-left-normal@2x.png") no-repeat center center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;
+        &.slick-disabled{position: absolute; top: 50%; left: -64px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url('../images/sub/media/arrow-left-disable@2x.png') no-repeat center center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;}
+    }
+    .slick-next{position: absolute; top: 50%; right: -64px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url("../images/sub/media/arrow-right-normal@2x.png") no-repeat center center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;
+        &.slick-disabled{position: absolute; top: 50%; right: -64px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url("../images/sub/media/arrow-right-disable@2x.png") no-repeat center center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;}
+    }
+}
+
+.modalPrintBox{
+    .slick-prev{position: absolute; top: 50%; left: -60px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url('../images/sub/media/arrow-left-normal@2x.png') no-repeat center;background-size: cover;border: none;outline: none;font-size: 0; cursor: pointer;
+        &.slick-disabled{position: absolute; top: 50%; left: -60px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url('../images/sub/media/arrow-left-disable@2x.png') no-repeat center center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;}
+    }
+    .slick-next{position: absolute; top: 50%; right: -60px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url('../images/sub/media/arrow-right-normal@2x.png') no-repeat center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;
+        &.slick-disabled{position: absolute; top: 50%; right: -60px; transform: translateY(-50%); z-index: 1; width: 64px;height: 64px;background: url("../images/sub/media/arrow-right-disable@2x.png") no-repeat center center;background-size: cover;border: none;outline: none;font-size: 0;cursor: pointer;}
+    }
+}
+/* Dots */
+
+.virtualSlide{
+    .slick-dots {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); list-style: none;
+        li {width: 56px; height: 4px;position: relative;display: inline-block;margin: 0 3px;padding: 0;cursor: pointer;
+            &:hover{background-color: #607fff;transition: 0.7s;}
+            &.slick-active{background-color: #607fff; transition: 0.7s;}
+        }
+    }
+}

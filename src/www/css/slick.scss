@@ -1,0 +1,86 @@
+/* Slider */
+
+.slick-slider {position: relative; display: block; box-sizing: border-box;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;-ms-touch-action: pan-y;touch-action: pan-y;-webkit-tap-highlight-color: transparent;}
+.slick-list {position: relative; overflow: hidden; display: block;margin: 0;padding: 0;
+    &:focus {outline: none;}
+    &.dragging {cursor: pointer;cursor: hand;}
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {-webkit-transform: translate3d(0, 0, 0);-moz-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+.slick-track {position: relative;left: 0;top: 0;display: block;margin-left: auto;margin-right: auto;
+    &:before, &:after {content: "";display: table;}
+    &:after {clear: both;}
+    .slick-loading & {visibility: hidden;}
+}
+.slick-slide {float: left;height: 100%;min-height: 1px;
+    [dir="rtl"] & {float: right;}
+    img {display: block;}
+    &.slick-loading img {display: none;}
+    display: none;
+    &.dragging img {pointer-events: none;}
+    .slick-initialized & {display: block;}
+    .slick-loading & {visibility: hidden;}
+    .slick-vertical & {display: block;height: auto;border: 1px solid transparent;}
+}
+.slick-arrow.slick-hidden {display: none;}
+
+// 여기서부터 커스텀
+// 가상체험관
+.virtualSlide{position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 3400px; height: 100%;
+    img{width: 1044px; height: 640px;}
+    .slick-list{height: 100%;}
+    .slick-track{height: 100%;}
+    .slick-slide{opacity: 0.3; transition: 0.7s; height: 100%;
+        > div{width: 1044px !important; height: 100%; margin: 0 auto;}
+        > div > div {position: relative; height: 100%;}
+        .box{display: none;}
+        .text03{display: none;}
+    }
+    .slick-center{opacity: 1;transition: 0.7s;
+        .box{display: block;transition: 5s;}
+        .text03{display: block;transition: 5s;}
+    }
+    .box{position: absolute; bottom: 80px; right: 40px; width: 354px;height: 230px; padding: 32px 44px;opacity: 0.76;border-radius: 10px;box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);background-color: #0e0f15; box-sizing: border-box;
+        .text01{position: relative; padding-bottom: 40px; font-family: 'NSKR'; font-size: 18px;font-weight: bold;letter-spacing: -0.45px;color: #fff;
+            &::after{content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; margin-bottom: 20px; opacity: 0.3;background-color: #ffffff;}
+        }
+        .text02{font-family: 'NSKR';font-size: 16px;line-height: 1.63;letter-spacing: -0.4px;color: #fff;}
+        .text04{margin-left: 12px; margin-bottom: 5px;font-family: 'NSKR';font-size: 14px;line-height: 1.86;letter-spacing: -0.35px;color: rgba(255, 255, 255, 0.7);}
+    }
+    .text03{position: absolute; bottom: 170px; left: 0; font-family: 'NSKB';padding-left: 60px;font-size: 18px;line-height: 1.56;letter-spacing: -0.45px;color: #fff;}
+    
+}
+
+// 미디어센터 TVCF
+.modalBox{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 1052px; height: 600px;
+    &.wd{width: 1126px;}
+    .slick-list{border-radius: 20px;}
+    .videoPopBox{position: relative; width: 1052px; height: 600px; border-radius: 20px; overflow: hidden;
+        &.wd{width: 1126px;}
+        .imgBox{position: relative;
+            .video01{width: 100%; height: 100%;}
+            .video02{width: 100%; height: 100%;}
+            .video03{width: 100%; height: 100%;}
+            .play{position:absolute;top:240px;left:476px;width:118px;height:118px;background:url('../images/sub/media/btn-play-normal-100@2x.png');background-size:cover;cursor: pointer;}    
+        }
+        .videoBox{width: 1052px; height: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden;
+            video{object-fit:fill; object-position:center;}
+        }
+    }   
+}
+
+.modalPrintBox{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 650px; height: 907px; border-radius: 10px;
+    .slick-list{position: relative; top: 50%; transform: translate(0,-50%); height: 100%; border-radius: 20px;}
+    .slick-track, .slick-slide, .slick-slide > div{height: 100%}
+    .printPopBox{position: relative; width: 100%; height: 100%; border-radius: 10px; overflow: hidden;
+        .print01, .print02, .dxImg{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100%; height: 100%;}
+    }
+}
+
+@media (max-width: 1440px){
+    .modalPrintBox{width: 520px; height: 725px;}
+}   
+@media (min-width: 1441px) and (max-width: 1680px){
+    .modalPrintBox{width: 520px; height: 725px;}
+}

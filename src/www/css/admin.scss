@@ -1,0 +1,818 @@
+@charset "UTF-8"; 
+
+/**************************************************
+   reset CSS
+**************************************************/
+html,body{width:100%;height:100%;font-size:12px;color:#222222;-webkit-text-size-adjust:none;overflow-y:hidden;}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,img,button,select{margin:0;padding:0}
+body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,button{font-family:'NSKR','돋움','Dotum','Helvetica','Apple SD Gothic Neo','sans-serif'}
+img,fieldset{border:0;vertical-align:top}
+table{border-collapse: collapse;border-spacing: 0;}
+a{color:#222222;text-decoration: none;}
+em,address{font-style:normal}
+ul,ol,li{list-style:none}
+label,button{cursor:pointer}
+input::-ms-clear{display:none}
+input:disabled{-webkit-text-fill-color:#8d8d8d;opacity:1}
+iframe{overflow:hidden;margin:0;padding:0;border:0}
+
+*{-webkit-overflow-scrolling:touch;} /* 모바일에서 터치 부드러운 효과 적용 */
+
+/* Noto Sans */
+@font-face {
+    font-family: 'NSKR';
+    src:url('../font/NotoSans/NotoSans-Regular.eot') format('embedded-opentype'),
+        url('../font/NotoSans/NotoSans-Regular.otf') format('opentype'),
+        url('../font/NotoSans/NotoSans-Regular.woff') format('woff'),
+        url('../font/NotoSans/NotoSans-Regular.woff2') format('woff2'),
+  }
+@font-face {
+    font-family: 'NSKB';
+    src:url('../font/NotoSans/NotoSans-Bold.eot') format('embedded-opentype'),
+        url('../font/NotoSans/NotoSans-Bold.otf') format('opentype'),
+        url('../font/NotoSans/NotoSans-Bold.woff') format('woff'),
+        url('../font/NotoSans/NotoSans-Bold.woff2') format('woff2'),
+  }
+
+/**************************************************
+   Layout
+**************************************************/
+#all{position:relative;width:100%;height:100%;overflow:hidden;min-width:1280px;
+    #header{width: 270px;height: 100%;}
+    #container{height: 100%;}
+}
+
+/**************************************************
+   Lnb
+**************************************************/
+#AdminLnb{position: relative;width: 100%;height: 100%;border-right: 3px solid #fafafa;
+    .logo{width: 157px;height: 26px;display: block;margin: 0 auto;padding: 20px 0;}
+    .adminBox{width: 165px;margin:20px auto 0;align-items: center;font-family: 'NSKR';
+        .name{font-size: 14px;color: #000;}
+        .btn{width: 75px;height: 30px;outline: none;border: none; border-radius: 30px;background-color: #1c90fb;text-align: center;line-height: 30px;font-size: 13px;color: #fff;cursor: pointer;}
+    }
+    .menuBox{margin: 50px auto; border-top: 1px solid #ccc;cursor: pointer;
+        .menu{padding: 20px 40px; font-size:20px;font-family: 'NSKB'; background-color: #f7f7f7; border: solid #ccc; border-width: 0 0 1px;}
+        .liBox{font-size: 17px;font-family: 'NSKR';
+            .li{padding: 15px 40px;border: solid #ccc; border-width: 0 0 1px; background-color: #eaeaea;}
+        }
+    }
+}
+
+/**************************************************
+   login
+**************************************************/
+#login{position: relative; width: 100%; height: 100%;
+    .inner{width: 450px; margin: 120px auto 0;
+        .top{text-align: center;}
+        .textBox{font-size: 14px; font-family: 'NSKR'; width: 268px; margin: 20px auto 50px; align-items: center; text-align: center;
+            .text01{
+                .textBlue{color: #1c90fb;}
+            }
+        }
+        .inputAll{width: 250px; margin: 0 auto;
+            .inputBox{
+                .input{width: 210px; outline: none; font-size: 15px; font-family: 'NSKR';padding: 15px 20px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 30px;}
+                :focus{border: 1px solid #1c90fb; transition: 0.3s;}
+            }
+            ::-webkit-input-placeholder{color:#ababac;}
+        }
+        .btnBox{width: 250px; margin: 20px auto; 
+            .btn{width: 100%; border: none; padding: 15px 0; font-size: 15px; font-family: 'NSKB'; border-radius: 10px; color: #fff; box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16); background: linear-gradient(to right, #00aaff 4%, #8168ff 95%);}
+        }
+    }
+}
+
+/**************************************************
+   PopUp
+**************************************************/
+#popUp{position: relative; width: 95%; padding: 80px 0 0 30px;
+    .title01{font-size: 25px; font-family: 'NSKB';}
+    .topBox{margin-top: 20px; padding: 10px 50px; border-top: 2px solid #666666; border-bottom: 1px solid #ccc; align-items: center; background-color: #fafafa;
+        .text01{line-height: 30px; margin-right: 5px; font-size: 14px; font-family: 'NSKB'}
+        .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+            &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+            .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+            .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+               &.up{transform: rotate(0deg);transition:all 0.3s;}
+               &.down{transform: rotate(180deg);transition:all 0.3s;}
+            }
+            .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+               ul{
+                  li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                     &:hover{background-color: #f3f6fe;cursor: pointer;}
+                  }
+               }
+            }
+        }
+        .rightBox{justify-content: flex-end;}
+        .InputBox{width: 75%; height: 30px; margin-right: 10px; padding:0px 12px 0px 12px;border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+            .InputText{width: 400px; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+        }
+        .btn{width: 80px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+    .conBox{margin-top: 20px; padding: 10px 0; align-items: center;
+        .conTopbox{align-items: center;
+            .totalBox{font-size: 16px; font-family: 'NSKR';}
+            .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+        }
+        .gridTableBasic{width: 100%; margin-top: 10px;
+            table{width:100%; box-sizing:border-box; table-layout: fixed;
+                &:first-of-type{border-top: none;}
+            }
+            .gridTableBasicH01{         
+                thead{background-color:#fafafa; border-top:2px solid #666;
+                    tr{height: 45px;}
+                    th{border:solid #e6e6e6; border-width:0px 1px 1px 1px; text-align: center; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                        &:first-of-type{border-left: none;}
+                        &:last-of-type{border-right: none;}
+                    }
+                }
+            }
+            .gridTableBasicB01{
+                tbody{table-layout: fixed;
+                    tr{height: 45px;}
+                    td{font-size: 13px;font-family: 'NSKR'; line-height: 3.33; border:1px solid #e6e6e6; border-top: none; padding: 0 7px; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+                        &:first-of-type{border-left: none;}
+                        &:nth-of-type(2){text-align: left;cursor: pointer;
+                            &:hover{text-decoration: underline;}
+                        }
+                        &:last-of-type{border-right: none;}
+                    }
+                    .dataNo{padding: 30px 0;}
+                }        
+            }
+        }
+    }
+    .botmBox{margin-top: 20px;
+        .PubGridPaging{padding-top: 10px;
+            .paging{line-height: 0;justify-content: center;
+                button{position: relative;width: 21px;height: 21px;background-color: transparent;border-width: initial;border-style: none;border-color: initial;border-image: initial;outline: none;
+                    &.first{margin-right:3px;}
+                    &.prev{margin-right:3px;}
+                    &.next{margin-left:3px;}
+                    &.last{margin-left:3px;}
+                    &.num{width: 21px; height: 21px; padding: 0px 3px; font-size: 12px; font-family: 돋움, Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;letter-spacing: 0px; text-align: center; text-decoration: none; line-height: initial; vertical-align: top; color: #4a4a4a; border-radius: 0px; border: none; outline: none; background: transparent; box-sizing: border-box; cursor: pointer; 
+                        &.on{color: #1c90fb;}
+                        &.on01{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                        &:hover{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                    }
+                }
+            }
+        }
+    }
+    .textBox{position: relative; padding: 10px 0; margin: 10px 0; font-size: 13px; font-family: 'NSKR';
+        .textA{position: absolute; top: 0; right: 0;
+            .textBlue{color: #1c90fb;}
+        }
+        .cor{position: absolute; top: 0; left: 0;}
+    }
+    .gridTableBasic{width: 100%;
+        table{width:100%; box-sizing:border-box; table-layout: fixed;border-top:2px solid #666;
+            tr{height: 45px;
+                th{text-align: left;background-color:#fafafa; padding-left: 10px;align-items: center; border:solid #e6e6e6; border-width:0px 0px 1px 0px; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                    .textBlue{color: #1c90fb;}
+                }
+                td{padding: 10px 0; font-size: 14px;font-family: 'NSKR'; border: solid #e6e6e6; border-width: 0px 0px 1px 0px; padding-left: 10px;
+                    .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+                        &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+                        .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+                        .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+                           &.up{transform: rotate(0deg);transition:all 0.3s;}
+                           &.down{transform: rotate(180deg);transition:all 0.3s;}
+                        }
+                        .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+                           ul{
+                              li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                                 &:hover{background-color: #f3f6fe;cursor: pointer;}
+                              }
+                           }
+                        }
+                    }
+                    .RadioBox{margin-left: 5px;
+                        input[type="radio"]{margin-top:1px;margin-left:1px;vertical-align: middle; visibility:hidden;}
+                        input[type="radio"] + label {margin: 0 28px 0 -17px; font-size: 13px; display: inline-block;min-height:11px;height:auto;background: url("../images/admin/radio@2x.png") no-repeat left center; background-size: 14px 14px; padding: 1px 0 2px 15px; overflow: hidden;vertical-align: middle;text-indent:4px;}
+                        input[type="radio"] + label:last-child{margin-right: 0px;}
+                        input[type="radio"]:checked + label{background: url("../images/admin/radio-checked@2x.png") no-repeat left center; background-size: 14px 14px; }
+                        //@media screen and (-webkit-min-device-pixel-ratio:0) {input[type="radio"] + label {min-height:12px;padding: 2px 0 2px 16px !important;}}
+                    }
+                    .InputBox01{width: 80%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox02{margin-top: 10px; width: 180px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                        &.on{background-color: #f0f0f0;}
+                    }
+                    .InputBox03{width: 385px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox04{width: 530px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .btnBox01{position: relative; width: 140px;
+                        .btn01{padding: 5px 30px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; color: #000; background-color: #fff; cursor: pointer;
+                            &:last-of-type{position: absolute; right: 0; border-radius: 0 5px 5px 0;}
+                            &.on{background-color: #f3f6fe;}
+                        }
+                    }
+                    .btn{width: 80px; height: 30px; margin-left: 10px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+                    .text02{font-size: 13px; font-family: 'NSKR'; margin-top: 5px; color: #acacac;}
+                }
+            }
+        }
+    }
+    .btnBox{margin-top: 20px;
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+}
+
+/**************************************************
+   introduction
+**************************************************/
+#introduction{position: relative; width: 95%; padding: 80px 0 0 30px;
+    .title01{font-size: 25px; font-family: 'NSKB';}
+    .topBox{margin-top: 20px; padding: 10px 30px; border-top: 2px solid #666666; border-bottom: 1px solid #ccc; align-items: center; background-color: #fafafa;
+        table{width: 100%;
+            tr{height: 40px;
+                .th{font-size: 14px; font-family: 'NSKB'; text-align: right; padding: 0 5px;}
+                td{
+                    .SelectBox{position:relative;margin:0 0 0 0; width: 95%;
+                        &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+                        .inbox{position: relative; height:30px; padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;
+                            .acc{width: 10%; text-align: center;}
+                            .icon{position: absolute; right: 10px; width: 20px; height: 20px; margin-top: 1px; background: url('../images/admin/ic-inputcal-m-normal@2x.png') no-repeat center; background-size: 20px 20px;}
+                        }
+                        .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+                            &.up{transform: rotate(0deg);transition:all 0.3s;}
+                            &.down{transform: rotate(180deg);transition:all 0.3s;}
+                        }
+                        .list{z-index: 1; position:absolute;top:29px;left:0px;width:100%;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+                            ul{
+                                li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                                    &:hover{background-color: #f3f6fe;cursor: pointer;}
+                                }
+                            }
+                        }
+                    }
+                    .InputBox{width: 77%; padding: 4px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .btn{width: 80px; height: 30px; margin: 0 0 0 10px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+                }
+            }
+        }
+    }
+    .conBox{margin-top: 20px; padding: 10px 0; align-items: center;
+        .conTopbox{align-items: center;
+            .totalBox{font-size: 16px; font-family: 'NSKR';}
+            .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+        }
+        .gridTableBasic{width: 100%; margin-top: 10px;
+            table{width:100%; box-sizing:border-box; table-layout: fixed;
+                &:first-of-type{border-top: none;}
+            }
+            .gridTableBasicH01{         
+                thead{height:45px; background-color:#fafafa; border-top:2px solid #666;
+                    tr{height: 45px;}
+                    th{border:solid #e6e6e6; border-width:0px 1px 1px 1px; text-align: center; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                        &:first-of-type{border-left: none;}
+                        &:last-of-type{border-right: none;}
+                    }
+                }
+            }
+            .gridTableBasicB01{
+                tbody{table-layout: fixed;
+                    tr{height: 45px;}
+                    td{font-size: 13px;font-family: 'NSKR'; line-height: 3.33; border:1px solid #e6e6e6; border-top: none; padding: 0 7px; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+                        &:first-of-type{border-left: none;}
+                        &:nth-of-type(2){text-align: left;cursor: pointer;
+                            &:hover{text-decoration: underline;}
+                        }
+                        &:last-of-type{border-right: none;}
+                    }
+                    .dataNo{padding: 30px 0;}
+                }        
+            }
+        }
+    }
+    .botmBox{margin-top: 20px;
+        .PubGridPaging{padding-top: 10px;
+            .paging{line-height: 0;justify-content: center;
+                button{position: relative;width: 21px;height: 21px;background-color: transparent;border-width: initial;border-style: none;border-color: initial;border-image: initial;outline: none;
+                    &.first{margin-right:3px;}
+                    &.prev{margin-right:3px;}
+                    &.next{margin-left:3px;}
+                    &.last{margin-left:3px;}
+                    &.num{width: 21px; height: 21px; padding: 0px 3px; font-size: 12px; font-family: 돋움, Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;letter-spacing: 0px; text-align: center; text-decoration: none; line-height: initial; vertical-align: top; color: #4a4a4a; border-radius: 0px; border: none; outline: none; background: transparent; box-sizing: border-box; cursor: pointer; 
+                        &.on{color: #1c90fb;}
+                        &.on01{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                        &:hover{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                    }
+                }
+            }
+        }
+    }
+    .textBox{position: relative; padding: 10px 0; margin: 10px 0; font-size: 13px; font-family: 'NSKR';
+        .textA{position: absolute; top: 0; right: 0;
+            .textBlue{color: #1c90fb;}
+        }
+    }
+    .gridTableBasic{width: 100%;
+        table{width:100%; box-sizing:border-box; table-layout: fixed;border-top:2px solid #666;
+            tr{height: 45px;
+                th{text-align: left;background-color:#fafafa; padding-left: 10px;align-items: center; border:solid #e6e6e6; border-width:0px 0px 1px 0px; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                    .textBlue{color: #1c90fb;}
+                }
+                td{padding: 10px 10px; font-size: 14px;font-family: 'NSKR'; border: solid #e6e6e6; border-width: 0px 0px 1px 0px; padding-left: 10px;
+                    .SelectBox{position:relative;margin:0 4px 0 0; width: 180px;
+                        &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+                        .inbox{width:180px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+                        .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+                           &.up{transform: rotate(0deg);transition:all 0.3s;}
+                           &.down{transform: rotate(180deg);transition:all 0.3s;}
+                        }
+                        .list{z-index: 1; position:absolute;top:29px;left:0px;width:180px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+                           ul{
+                              li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                                 &:hover{background-color: #f3f6fe;cursor: pointer;}
+                              }
+                           }
+                        }
+                        &:nth-last-child(1){width: 90%;
+                            .inbox{width: 100%;}
+                            .list{width: 100%;}
+                        }
+                    }
+                    .CheckBox{margin-left: 5px;
+                        input[type="radio"]{margin-top:1px;margin-left:1px;vertical-align: middle; visibility:hidden;}
+                        input[type="radio"] + label {margin: 0 28px 0 -17px; font-size: 13px; display: inline-block;min-height:11px;height:auto;background: url("../images/admin/checkbox@2x.png") no-repeat left center; background-size: 14px 14px; padding: 1px 0 2px 15px; overflow: hidden;vertical-align: middle;text-indent:4px;}
+                        input[type="radio"] + label:last-child{margin-right: 0px;}
+                        input[type="radio"]:checked + label{background: url("../images/admin/checkbox-cehcked@2x.png") no-repeat left center; background-size: 14px 14px; }
+                    }
+                    .RadioBox{margin-left: 5px;
+                        input[type="radio"]{margin-top:1px;margin-left:1px;vertical-align: middle; visibility:hidden;}
+                        input[type="radio"] + label {margin: 0 28px 0 -17px; font-size: 13px; display: inline-block;min-height:11px;height:auto;background: url("../images/admin/radio@2x.png") no-repeat left center; background-size: 14px 14px; padding: 1px 0 2px 15px; overflow: hidden;vertical-align: middle;text-indent:4px;}
+                        input[type="radio"] + label:last-child{margin-right: 0px;}
+                        input[type="radio"]:checked + label{background: url("../images/admin/radio-checked@2x.png") no-repeat left center; background-size: 14px 14px; }
+                        //@media screen and (-webkit-min-device-pixel-ratio:0) {input[type="radio"] + label {min-height:12px;padding: 2px 0 2px 16px !important;}}
+                    }
+                    .more{margin-top: 10px; align-items: center;}
+                    .InputBox01{width: 82%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                        &.on{background-color: #f0f0f0;}
+                    }
+                    .InputBox02{width: 90%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                        ::-webkit-input-placeholder{color:#ababac;}
+                        .Textarea{border: none; font-size: 14px; font-family: 'NSKR'; width: 100%; height: 100px; resize: none; outline: none; box-sizing: border-box;}
+                        ::-webkit-scrollbar{width: 8px;}
+                        ::-webkit-scrollbar-thumb{background-color:#dbdbdb; border-radius: 15px;}
+                        ::-webkit-scrollbar-track{background-color:#fff;}
+                    }
+                    .InputBox03{width: 50%; padding: 4px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .btnBox01{position: relative; width: 140px;
+                        .btn01{padding: 5px 30px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; color: #000; background-color: #fff; cursor: pointer;
+                            &:last-of-type{position: absolute; right: 0; border-radius: 0 5px 5px 0;}
+                            &.on{background-color: #f3f6fe;}
+                        }
+                    }
+                    .btn{width: 80px; height: 30px; margin-left: 10px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+                    .text02{font-size: 13px; font-family: 'NSKR'; margin-top: 5px; color: #acacac;}
+                }
+            }
+        }
+    }
+    .btnBox{margin-top: 20px;
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+}
+
+/**************************************************
+   media
+**************************************************/
+#MediaCenter01{position: relative; width: 95%; padding: 80px 0 0 30px;
+    .title01{font-size: 25px; font-family: 'NSKB';}
+    .topBox{margin-top: 20px; padding: 10px 50px; border-top: 2px solid #666666; border-bottom: 1px solid #ccc; align-items: center; background-color: #fafafa;
+        .text01{line-height: 30px; margin-right: 5px; font-size: 14px; font-family: 'NSKB'}
+        .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+            &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+            .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+            .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+               &.up{transform: rotate(0deg);transition:all 0.3s;}
+               &.down{transform: rotate(180deg);transition:all 0.3s;}
+            }
+            .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+               ul{
+                  li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                     &:hover{background-color: #f3f6fe;cursor: pointer;}
+                  }
+               }
+            }
+        }
+        .InputBox{height: 30px; margin: 0 10px 0 0px; padding:0px 12px 0px 12px;border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+            .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+        }
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+    .conBox{margin-top: 20px; padding: 10px 0; align-items: center;
+        .conTopbox{align-items: center;
+            .totalBox{font-size: 16px; font-family: 'NSKR';}
+            .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+        }
+        .gridTableBasic{width: 100%; margin-top: 10px;
+            table{width:100%; box-sizing:border-box; table-layout: fixed;
+                &:first-of-type{border-top: none;}
+            }
+            .gridTableBasicH01{         
+                thead{background-color:#fafafa; border-top:2px solid #666;
+                    tr{height: 45px;}
+                    th{border:solid #e6e6e6; border-width:0px 1px 1px 1px; text-align: center; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                        &:first-of-type{border-left: none;}
+                        &:last-of-type{border-right: none;}
+                    }
+                }
+            }
+            .gridTableBasicB01{
+                tbody{table-layout: fixed;
+                    tr{height: 45px;}
+                    td{font-size: 13px;font-family: 'NSKR'; line-height: 3.33; border:1px solid #e6e6e6; border-top: none; padding: 0 7px; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+                        &:first-of-type{border-left: none;}
+                        &:nth-of-type(2){text-align: left;cursor: pointer;
+                            &:hover{text-decoration: underline;}
+                        }
+                        &:last-of-type{border-right: none;}
+                    }
+                    .dataNo{padding: 30px 0;}
+                }        
+            }
+        }
+    }
+    .botmBox{margin-top: 20px;
+        .PubGridPaging{padding-top: 10px;
+            .paging{line-height: 0;justify-content: center;
+                button{position: relative;width: 21px;height: 21px;background-color: transparent;border-width: initial;border-style: none;border-color: initial;border-image: initial;outline: none;
+                    &.first{margin-right:3px;}
+                    &.prev{margin-right:3px;}
+                    &.next{margin-left:3px;}
+                    &.last{margin-left:3px;}
+                    &.num{width: 21px; height: 21px; padding: 0px 3px; font-size: 12px; font-family: 돋움, Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;letter-spacing: 0px; text-align: center; text-decoration: none; line-height: initial; vertical-align: top; color: #4a4a4a; border-radius: 0px; border: none; outline: none; background: transparent; box-sizing: border-box; cursor: pointer; 
+                        &.on{color: #1c90fb;}
+                        &.on01{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                        &:hover{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                    }
+                }
+            }
+        }
+    }
+    .textBox{position: relative; padding: 10px 0; margin: 10px 0; font-size: 13px; font-family: 'NSKR';
+        .textA{position: absolute; top: 0; right: 0;
+            .textBlue{color: #1c90fb;}
+        }
+        .cor{position: absolute; top: 0; left: 0;}
+    }
+    .gridTableBasic{width: 100%;
+        table{width:100%; box-sizing:border-box; table-layout: fixed;border-top:2px solid #666;
+            tr{height: 45px;
+                th{text-align: left;background-color:#fafafa; padding-left: 10px;align-items: center; border:solid #e6e6e6; border-width:0px 0px 1px 0px; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                    .textBlue{color: #1c90fb;}
+                }
+                td{padding: 10px 0; font-size: 14px;font-family: 'NSKR'; border: solid #e6e6e6; border-width: 0px 0px 1px 0px; padding-left: 10px;
+                    .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+                        &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+                        .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+                        .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+                           &.up{transform: rotate(0deg);transition:all 0.3s;}
+                           &.down{transform: rotate(180deg);transition:all 0.3s;}
+                        }
+                        .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+                           ul{
+                              li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                                 &:hover{background-color: #f3f6fe;cursor: pointer;}
+                              }
+                           }
+                        }
+                    }
+                    .RadioBox{margin-left: 5px;
+                        input[type="radio"]{margin-top:1px;margin-left:1px;vertical-align: middle; visibility:hidden;}
+                        input[type="radio"] + label {margin: 0 28px 0 -17px; font-size: 13px; display: inline-block;min-height:11px;height:auto;background: url("../images/admin/radio@2x.png") no-repeat left center; background-size: 14px 14px; padding: 1px 0 2px 15px; overflow: hidden;vertical-align: middle;text-indent:4px;}
+                        input[type="radio"] + label:last-child{margin-right: 0px;}
+                        input[type="radio"]:checked + label{background: url("../images/admin/radio-checked@2x.png") no-repeat left center; background-size: 14px 14px; }
+                        //@media screen and (-webkit-min-device-pixel-ratio:0) {input[type="radio"] + label {min-height:12px;padding: 2px 0 2px 16px !important;}}
+                    }
+                    .InputBox01{width: 80%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox02{margin-top: 10px; width: 180px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                        &.on{background-color: #f0f0f0;}
+                    }
+                    .InputBox03{width: 450px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox04{margin-top: 10px; width: 530px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .btnBox01{position: relative; width: 140px;
+                        .btn01{padding: 5px 30px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; color: #000; background-color: #fff; cursor: pointer;
+                            &:last-of-type{position: absolute; right: 0; border-radius: 0 5px 5px 0;}
+                            &.on{background-color: #f3f6fe;}
+                        }
+                    }
+                    .btn{width: 80px; height: 30px; margin-left: 10px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+                    .text02{font-size: 13px; font-family: 'NSKR'; margin-top: 5px; color: #acacac;}
+                }
+            }
+        }
+    }
+    .btnBox{margin-top: 20px;
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+}
+
+#MediaCenter02{position: relative; width: 95%; padding: 80px 0 0 30px;
+    .title01{font-size: 25px; font-family: 'NSKB';}
+    .topBox{margin-top: 20px; padding: 10px 50px; border-top: 2px solid #666666; border-bottom: 1px solid #ccc; align-items: center; background-color: #fafafa;
+        .text01{line-height: 30px; margin-right: 5px; font-size: 14px; font-family: 'NSKB'}
+        .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+            &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+            .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+            .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+               &.up{transform: rotate(0deg);transition:all 0.3s;}
+               &.down{transform: rotate(180deg);transition:all 0.3s;}
+            }
+            .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+               ul{
+                  li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                     &:hover{background-color: #f3f6fe;cursor: pointer;}
+                  }
+               }
+            }
+        }
+        .InputBox{width: 83%; height: 30px; margin-right: 10px; padding:0px 12px 0px 12px;border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+            .InputText{width: 400px; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+        }
+        .btn{width: 80px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+    .conBox{margin-top: 20px; padding: 10px 0; align-items: center;
+        .conTopbox{align-items: center;
+            .totalBox{font-size: 16px; font-family: 'NSKR';}
+            .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+        }
+        .gridTableBasic{width: 100%; margin-top: 10px;
+            table{width:100%; box-sizing:border-box; table-layout: fixed;
+                &:first-of-type{border-top: none;}
+            }
+            .gridTableBasicH01{         
+                thead{background-color:#fafafa; border-top:2px solid #666;
+                    tr{height: 45px;}
+                    th{border:solid #e6e6e6; border-width:0px 1px 1px 1px; text-align: center; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                        &:first-of-type{border-left: none;}
+                        &:last-of-type{border-right: none;}
+                    }
+                }
+            }
+            .gridTableBasicB01{
+                tbody{table-layout: fixed;
+                    tr{height: 45px;}
+                    td{font-size: 13px;font-family: 'NSKR'; line-height: 3.33; border:1px solid #e6e6e6; border-top: none; padding: 0 7px; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+                        &:first-of-type{border-left: none;}
+                        &:nth-of-type(2){text-align: left;cursor: pointer;
+                            &:hover{text-decoration: underline;}
+                        }
+                        &:last-of-type{border-right: none;}
+                    }
+                    .dataNo{padding: 30px 0;}
+                }        
+            }
+        }
+    }
+    .botmBox{margin-top: 20px;
+        .PubGridPaging{padding-top: 10px;
+            .paging{line-height: 0;justify-content: center;
+                button{position: relative;width: 21px;height: 21px;background-color: transparent;border-width: initial;border-style: none;border-color: initial;border-image: initial;outline: none;
+                    &.first{margin-right:3px;}
+                    &.prev{margin-right:3px;}
+                    &.next{margin-left:3px;}
+                    &.last{margin-left:3px;}
+                    &.num{width: 21px; height: 21px; padding: 0px 3px; font-size: 12px; font-family: 돋움, Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;letter-spacing: 0px; text-align: center; text-decoration: none; line-height: initial; vertical-align: top; color: #4a4a4a; border-radius: 0px; border: none; outline: none; background: transparent; box-sizing: border-box; cursor: pointer; 
+                        &.on{color: #1c90fb;}
+                        &.on01{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                        &:hover{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                    }
+                }
+            }
+        }
+    }
+    .textBox{position: relative; padding: 10px 0; margin: 10px 0; font-size: 13px; font-family: 'NSKR';
+        .textA{position: absolute; top: 0; right: 0;
+            .textBlue{color: #1c90fb;}
+        }
+        .cor{position: absolute; top: 0; left: 0;}
+    }
+    .gridTableBasic{width: 100%;
+        table{width:100%; box-sizing:border-box; table-layout: fixed;border-top:2px solid #666;
+            tr{height: 45px;
+                th{text-align: left;background-color:#fafafa; padding-left: 10px;align-items: center; border:solid #e6e6e6; border-width:0px 0px 1px 0px; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                    .textBlue{color: #1c90fb;}
+                }
+                td{padding: 10px 0; font-size: 14px;font-family: 'NSKR'; border: solid #e6e6e6; border-width: 0px 0px 1px 0px; padding-left: 10px;
+                    .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+                        &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+                        .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+                        .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+                           &.up{transform: rotate(0deg);transition:all 0.3s;}
+                           &.down{transform: rotate(180deg);transition:all 0.3s;}
+                        }
+                        .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+                           ul{
+                              li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                                 &:hover{background-color: #f3f6fe;cursor: pointer;}
+                              }
+                           }
+                        }
+                    }
+                    .RadioBox{margin-left: 5px;
+                        input[type="radio"]{margin-top:1px;margin-left:1px;vertical-align: middle; visibility:hidden;}
+                        input[type="radio"] + label {margin: 0 28px 0 -17px; font-size: 13px; display: inline-block;min-height:11px;height:auto;background: url("../images/admin/radio@2x.png") no-repeat left center; background-size: 14px 14px; padding: 1px 0 2px 15px; overflow: hidden;vertical-align: middle;text-indent:4px;}
+                        input[type="radio"] + label:last-child{margin-right: 0px;}
+                        input[type="radio"]:checked + label{background: url("../images/admin/radio-checked@2x.png") no-repeat left center; background-size: 14px 14px; }
+                        //@media screen and (-webkit-min-device-pixel-ratio:0) {input[type="radio"] + label {min-height:12px;padding: 2px 0 2px 16px !important;}}
+                    }
+                    .InputBox01{width: 80%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox02{width: 90%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                        ::-webkit-input-placeholder{color:#ababac;}
+                        .Textarea{border: none; font-size: 14px; font-family: 'NSKR'; width: 100%; height: 100px; resize: none; outline: none; box-sizing: border-box;}
+                        ::-webkit-scrollbar{width: 8px;}
+                        ::-webkit-scrollbar-thumb{background-color:#dbdbdb; border-radius: 15px;}
+                        ::-webkit-scrollbar-track{background-color:#fff;}
+                    }
+                    .InputBox03{width: 440px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox04{width: 530px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .btnBox01{position: relative; width: 140px;
+                        .btn01{padding: 5px 30px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; color: #000; background-color: #fff; cursor: pointer;
+                            &:last-of-type{position: absolute; right: 0; border-radius: 0 5px 5px 0;}
+                            &.on{background-color: #f3f6fe;}
+                        }
+                    }
+                    .btn{width: 80px; height: 30px; margin-left: 10px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+                    .text02{font-size: 13px; font-family: 'NSKR'; margin-top: 5px; color: #acacac;}
+                }
+            }
+        }
+    }
+    .btnBox{margin-top: 20px;
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+}
+
+#MediaCenter03{position: relative; width: 95%; padding: 80px 0 0 30px;
+    .title01{font-size: 25px; font-family: 'NSKB';}
+    .topBox{margin-top: 20px; padding: 10px 50px; border-top: 2px solid #666666; border-bottom: 1px solid #ccc; align-items: center; background-color: #fafafa;
+        .text01{line-height: 30px; margin-right: 5px; font-size: 14px; font-family: 'NSKB'}
+        .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+            &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+            .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+            .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+               &.up{transform: rotate(0deg);transition:all 0.3s;}
+               &.down{transform: rotate(180deg);transition:all 0.3s;}
+            }
+            .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+               ul{
+                  li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                     &:hover{background-color: #f3f6fe;cursor: pointer;}
+                  }
+               }
+            }
+        }
+        .InputBox{height: 30px; margin: 0 10px 0 20px; padding:0px 12px 0px 12px;border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+            .InputText{width: 100%; outline: none; border:none;font-size:16px;font-family:'NSKR';letter-spacing:-0.35px;}
+        }
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+    .conBox{margin-top: 20px; padding: 10px 0; align-items: center;
+        .conTopbox{align-items: center;
+            .totalBox{font-size: 16px; font-family: 'NSKR';}
+            .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+        }
+        .gridTableBasic{width: 100%; margin-top: 10px;
+            table{width:100%; box-sizing:border-box; table-layout: fixed;
+                &:first-of-type{border-top: none;}
+            }
+            .gridTableBasicH01{         
+                thead{background-color:#fafafa; border-top:2px solid #666;
+                    tr{height: 45px;}
+                    th{border:solid #e6e6e6; border-width:0px 1px 1px 1px; text-align: center; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                        &:first-of-type{border-left: none;}
+                        &:last-of-type{border-right: none;}
+                    }
+                }
+            }
+            .gridTableBasicB01{
+                tbody{table-layout: fixed;
+                    tr{height: 45px;}
+                    td{font-size: 13px;font-family: 'NSKR'; line-height: 3.33; border:1px solid #e6e6e6; border-top: none; padding: 0 7px; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+                        &:first-of-type{border-left: none;}
+                        &:nth-of-type(2){text-align: left;cursor: pointer;
+                            &:hover{text-decoration: underline;}
+                        }
+                        &:last-of-type{border-right: none;}
+                    }
+                    .dataNo{padding: 30px 0;}
+                }        
+            }
+        }
+    }
+    .botmBox{margin-top: 20px;
+        .PubGridPaging{padding-top: 10px;
+            .paging{line-height: 0;justify-content: center;
+                button{position: relative;width: 21px;height: 21px;background-color: transparent;border-width: initial;border-style: none;border-color: initial;border-image: initial;outline: none;
+                    &.first{margin-right:3px;}
+                    &.prev{margin-right:3px;}
+                    &.next{margin-left:3px;}
+                    &.last{margin-left:3px;}
+                    &.num{width: 21px; height: 21px; padding: 0px 3px; font-size: 12px; font-family: 돋움, Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;letter-spacing: 0px; text-align: center; text-decoration: none; line-height: initial; vertical-align: top; color: #4a4a4a; border-radius: 0px; border: none; outline: none; background: transparent; box-sizing: border-box; cursor: pointer; 
+                        &.on{color: #1c90fb;}
+                        &.on01{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                        &:hover{color: #1c90fb;border: 1px solid #1c90fb;background:#e9f5ff;}
+                    }
+                }
+            }
+        }
+    }
+    .textBox{position: relative; padding: 10px 0; margin: 10px 0; font-size: 13px; font-family: 'NSKR';
+        .textA{position: absolute; top: 0; right: 0;
+            .textBlue{color: #1c90fb;}
+        }
+        .cor{position: absolute; top: 0; left: 0;}
+    }
+    .gridTableBasic{width: 100%;
+        table{width:100%; box-sizing:border-box; table-layout: fixed;border-top:2px solid #666;
+            tr{height: 45px;
+                th{text-align: left;background-color:#fafafa; padding-left: 10px;align-items: center; border:solid #e6e6e6; border-width:0px 0px 1px 0px; letter-spacing: -0.6px; font: bold 14px/32px 'NSKB';color:#000000;
+                    .textBlue{color: #1c90fb;}
+                }
+                td{padding: 10px 0; font-size: 14px;font-family: 'NSKR'; border: solid #e6e6e6; border-width: 0px 0px 1px 0px; padding-left: 10px;
+                    .SelectBox{position:relative;margin:0 4px 0 0; width: 220px;
+                        &::after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+                        .inbox{width:220px;height:30px;padding:3px 13px 0 12px;font-size:14px;font-family:'NSKR';color:#4b4e53;letter-spacing:-0.35px;border:1px solid #dbdbdb;box-sizing: border-box;background-color: #fff;cursor: pointer;}
+                        .arr{position:absolute;top:12px;right:13px;width:10px;height:6px;background:url("../images/sub/introduction/ic-triangle@3x.png") no-repeat center;background-size:cover;
+                           &.up{transform: rotate(0deg);transition:all 0.3s;}
+                           &.down{transform: rotate(180deg);transition:all 0.3s;}
+                        }
+                        .list{z-index: 1; position:absolute;top:29px;left:0px;width:220px;border:1px solid #dddddd;background:#ffffff;box-sizing: border-box;
+                           ul{
+                              li{padding:0 13px;font-size:14px;line-height:30px;font-family:'NSKR';text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+                                 &:hover{background-color: #f3f6fe;cursor: pointer;}
+                              }
+                           }
+                        }
+                    }
+                    .RadioBox{margin-left: 5px;
+                        input[type="radio"]{margin-top:1px;margin-left:1px;vertical-align: middle; visibility:hidden;}
+                        input[type="radio"] + label {margin: 0 28px 0 -17px; font-size: 13px; display: inline-block;min-height:11px;height:auto;background: url("../images/admin/radio@2x.png") no-repeat left center; background-size: 14px 14px; padding: 1px 0 2px 15px; overflow: hidden;vertical-align: middle;text-indent:4px;}
+                        input[type="radio"] + label:last-child{margin-right: 0px;}
+                        input[type="radio"]:checked + label{background: url("../images/admin/radio-checked@2x.png") no-repeat left center; background-size: 14px 14px; }
+                        //@media screen and (-webkit-min-device-pixel-ratio:0) {input[type="radio"] + label {min-height:12px;padding: 2px 0 2px 16px !important;}}
+                    }
+                    .InputBox01{width: 80%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox02{width: 90%; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                        ::-webkit-input-placeholder{color:#ababac;}
+                        .Textarea{border: none; font-size: 14px; font-family: 'NSKR'; width: 100%; height: 100px; resize: none; outline: none; box-sizing: border-box;}
+                        ::-webkit-scrollbar{width: 8px;}
+                        ::-webkit-scrollbar-thumb{background-color:#dbdbdb; border-radius: 15px;}
+                        ::-webkit-scrollbar-track{background-color:#fff;}
+                    }
+                    .InputBox03{width: 450px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .InputBox04{margin-top: 10px; width: 530px; padding: 5px 10px; border:1px solid #dbdbdb;box-sizing: border-box; background-color: #fff;
+                        .InputText{width: 100%; outline: none; border:none;font-size:14px;font-family:'NSKR';letter-spacing:-0.35px;}
+                    }
+                    .btnBox01{position: relative; width: 140px;
+                        .btn01{padding: 5px 30px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; color: #000; background-color: #fff; cursor: pointer;
+                            &:last-of-type{position: absolute; right: 0; border-radius: 0 5px 5px 0;}
+                            &.on{background-color: #f3f6fe;}
+                        }
+                    }
+                    .btn{width: 80px; height: 30px; margin-left: 10px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+                    .text02{font-size: 13px; font-family: 'NSKR'; margin-top: 5px; color: #acacac;}
+                }
+            }
+        }
+    }
+    .btnBox{margin-top: 20px;
+        .btn{width: 80px; height: 30px; font-size: 14px; border: 1px solid #ccc; background: linear-gradient(to top, #f0f0f0, #fff);}
+    }
+}
